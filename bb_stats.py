@@ -64,9 +64,8 @@ _______________||________________________________''')
         # This is the beginning of the menu prompting user for what to do
         start_screen = input("What would you like? (i.e 1 or 2): ")
 
-        # Clears the screen so that the console looks clean through each step 
-        # TODO, implement a catch for windows machines. i.e ('cls')
-        os.system('clear')
+        # Clears the screen so that the console looks clean through each step
+        os.system('cls' if os.name == 'nt' else 'clear')
 
         try:
             start_screen = int(start_screen)
@@ -81,7 +80,7 @@ _______________||________________________________''')
                     print("==========> "f'{i}) {team}')
 
                 team_input = input('''Ok, you're a statistics nerd!:\r\nPick your team to get your fill of cool stats!:  ''')
-                os.system('clear')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 try:
                     team_input = int(team_input)-1
                     if not which_team(team_input):
