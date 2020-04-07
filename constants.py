@@ -5,22 +5,22 @@ TEAMS = [
 ]
 
 PLAYERS = [{
-        'name': 'Karl Saygan',
-        'guardians': 'Heather Bledsoe',
-        'experience': 'YES',
-        'height': '42 inches'
-    },
+    'name': 'Karl Saygan',
+    'guardians': 'Heather Bledsoe',
+    'experience': 'YES',
+    'height': '42 inches'
+},
     {
         'name': 'Matt Gill',
         'guardians': 'Charles Gill and Sylvia Gill',
         'experience': 'NO',
         'height': '40 inches'
     },
-    {   'name': 'Sammy Adams',
-        'guardians': 'Jeff Adams and Gary Adams',
-        'experience': 'NO',
-        'height': '45 inches'
-    },
+    {'name': 'Sammy Adams',
+     'guardians': 'Jeff Adams and Gary Adams',
+     'experience': 'NO',
+     'height': '45 inches'
+     },
     {
         'name': 'Chloe Alaska',
         'guardians': 'David Alaska and Jamie Alaska',
