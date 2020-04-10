@@ -11,10 +11,8 @@ player_data = copy.deepcopy(constants.PLAYERS)
 team_data = copy.deepcopy(constants.TEAMS)
 
 
-# create a way to clean all teams based on variables instead of 
-# doing steps for every team. Trying to keep it DRY and clean
-
 def make_teams(cleaned_players):
+    """Clean all teams"""
     distributed_teams = 0
     for player in cleaned_players:
         teams[team_data[distributed_teams]].append(
