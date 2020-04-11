@@ -5,6 +5,7 @@ import sys
 from texttable import Texttable
 
 import constants
+from artwork import art_one, art_two
 
 # Create a deep copy of the original file
 player_data = copy.deepcopy(constants.PLAYERS)
@@ -31,6 +32,8 @@ def which_team(select_team):
     else:
         return False
 
+def clear():
+  os.system('cls' if os.name == 'nt' else 'clear')
 
 if __name__ == "__main__":
 
@@ -44,26 +47,13 @@ if __name__ == "__main__":
     # Using a function instead of while True as suggested by @megan from TreeHouse
     start_screen = True
     while start_screen:
-        print('--------------------------------------------------')
-        print('--------------------------------------------------')
-
-        print(
-            '''   BASKETBALL STATS TOOL
-                    ________ 
-            o      |   __   | The choice is yours my friend!'
-              \_ O |  |__|  |   1) Show teams stats as table
-           ____/ \ |___WW___|   2) Let's me out I'm bored!
-           __/   /     ||      
-                       ||
-                       ||
-        _______________||________________________________''')
-        print('--------------------------------------------------\n')
+        art_one()
 
         # This is the beginning of the menu prompting user for what to do
         start_screen = input("What would you like? (i.e 1 or 2): ")
 
         # Clears the screen so that the console looks clean through each step
-        os.system('cls' if os.name == 'nt' else 'clear')
+        clear()
 
         try:
             start_screen = int(start_screen)
@@ -79,7 +69,7 @@ if __name__ == "__main__":
 
                 team_input = input(
                     '''Ok, you're a statistics nerd!:\r\nPick your team to get your fill of cool stats!:  ''')
-                os.system('cls' if os.name == 'nt' else 'clear')
+                clear()
                 try:
                     team_input = int(team_input) - 1
                     if not which_team(team_input):
@@ -111,41 +101,7 @@ if __name__ == "__main__":
                     print(table.draw())
 
             if start_screen == 2:
-                sys.exit(0)
+              art_two()
+              sys.exit(0)
 
-                print('''
-
-        Hope you had fun!!! See you next time!!!
-                              =_-___
-                    o    \__ \ 
-                   o       __| \ 
-                    o      \__  \ 
-                      oooo    \  \ 
-                               \  \ 
- __________________             |   \ 
-|__________________|             \   |
- \/\/\/\/\/\/\/\/\/     _----_    |   |
-  \/\/\/\/\/\/\/\/     |      \   |   |
-   \/\/\/\/\/\/\/      |       |    |  |
-    |/\/\/\/\/\|        |       \__/    |
-    |/\/\/\/\/\|         __---          |
-    |/\/\/\/\/\|       /   \            |
-                      |     |    23    |
-                      |   /            |
-                      |   \            |
-                      |   | \          |
-                      |   |   \____-----\ 
-                      |   |    \____-----
-                       |  |    |          \ 
-                       |  |   |             \ 
-                        \  \_|_      |       |
-                         \____/  ___/ \_____/\ 
-                            /    /       \     \ 
-                          /     /          \     \ 
-                         /    /              \    \ 
-                       /    /                  \    \ 
-                      /   /                      \   \ 
-                /\   /  /                          \  |
-               |  \/ \/                              \/ \ 
-                \    |                             __/   |
-                  \_/                            /______/''')
+                
