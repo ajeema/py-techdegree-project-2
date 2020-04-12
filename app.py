@@ -33,6 +33,7 @@ def which_team(select_team):
         return False
 
 def clear():
+  """make clearing screen it's own function"""
   os.system('cls' if os.name == 'nt' else 'clear')
 
 if __name__ == "__main__":
@@ -78,10 +79,11 @@ if __name__ == "__main__":
                     print("We ran out into an issue : {}".format(err))
                 else:
                     team_name = team_data[team_input]
-                    # TODO - remove '[]' from being displayed in table
                     # this block perhaps could be cleaned up and more DRY
                     player = [player['name'] for player in teams[team_name]]
+                    player_cleaned = (', '.join(player))
                     team_guards = ([guardians for player in teams[team_name] for guardians in player['guardians']])
+                    team_guards_cleaned = (', '.join(team_guards))
                     num_exp_players = (
                         len([player['name'] for player in teams[team_name] if player['experience'] == True]))
                     num_inexp_players = (
@@ -94,10 +96,10 @@ if __name__ == "__main__":
                     table.set_cols_width([30, 30, 10, 11, 8, 8])
                     table.set_cols_align(["l", "l", "l", "l", "l", "l"])
                     table.set_cols_valign(["l", "l", "c", "c", "c", 'c'])
-                    table.add_rows([[".  Players Name.  ", "Guardians", "Non-exp\r\nPlayers", "Experienced Players",
+                    table.add_rows([["Players Name  ", "Guardians", "Non-exp\r\nPlayers", "Experienced Players",
                                      "Average Player's\r\nheight", "Total number\r\nof players"],
-                                    [player, team_guards, num_inexp_players, num_exp_players, {avg_height},
-                                     {total_players}]])
+                                    [player_cleaned, team_guards_cleaned, num_inexp_players, num_exp_players, avg_height,
+                                     total_players]])
                     print(table.draw())
 
             if start_screen == 2:
